@@ -7,15 +7,34 @@
     <style media="screen">
       body{
         background-color: #333333;
-        font-family: arial;
+        /*font-family: arial;*/
+      }
+
+      /*Animation settings to control opacity shift*/
+      @keyframes transparency {
+        0%   {opacity: 0}
+        10%  {opacity: 0}
+        100% {opacity: 1}
       }
 
       #titleText{
         position: fixed;
         top: 35%;
         left: 35%;
+        animation-name: transparency;
+        animation-duration: 6s;
+        animation-timing-function: ease;
+        /*animation-delay: 2s;*/
       }
     </style>
+
+    <script type="text/javascript">
+      function Redirect()
+      {
+        window.location = "https://snazzymaps.com/build-a-map/preview/82684";
+      }
+      setTimeout('Redirect()', 3000);
+    </script>
   </head>
   <body>
     <div id='titleText'>

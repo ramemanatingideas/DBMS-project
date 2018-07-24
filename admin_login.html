@@ -4,30 +4,60 @@
     <meta charset="utf-8">
     <title>Admin login</title>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <style>
         body{
           background-color: #2B2B2B;
         }
 
+        #logo{
+          position: fixed;
+          top: 10%;
+          left: 48%;
+        }
+
+        #form-box{
+          position: fixed;
+          top: 30%;
+          left: 40%;
+          height: 400px;
+          width: 350px;
+          /*border: 2px solid white;*/
+          border-radius: 10px;
+          background-color: #333333;
+        }
+
         #admin_form{
           position: fixed;
-          top: 50%;
-          left: 50%;
-          border: 2px solid green;
+          top: 35%;
+          left: 43.3%;
+          /*border: 2px solid green;*/
           height: auto;
-          width:  auto;
+          width:  250px;
           background-color: : #333333;
+          color: white; /*Text color*/
         }
     </style>
   </head>
   <body>
 
-    <form>
-      <div id='admin_form'>
-        <input type="text" name="" value="" placeholder="Username" style="display: block">
-        <input type="password" name="" value="" placeholder="Password" style="display: block">
-      </div>
-    </form>
+    <div id='logo'>
+      <img src="./lib/img/logo.png" alt="logo" height="100px" width="100px">
+    </div>
+
+    <div id='form-box'>
+      <form>
+        <div id='admin_form'>
+          <label for="">Username:</label>
+          <input type="text" name="" value="" placeholder="Username" class='form-control' style="display: block">
+          <br><br>
+          <label for="">Password:</label>
+          <input type="password" name="" value="" placeholder="Password" class='form-control' style="display: block">
+        </div>
+      </form>
+    </div>
 
   </body>
 </html>
