@@ -26,19 +26,440 @@
         animation-timing-function: ease;
         /*animation-delay: 2s;*/
       }
+
+      /*Div tags for x35 images*/
+      #p1{
+        position: fixed;
+        top: 57%;
+        left: -2%;
+        visibility: hidden;
+      }
+
+      #p2{
+        position: fixed;
+        top: 23%;
+        left: 75%;
+        visibility: hidden;
+      }
+
+      #p3{
+        position: fixed;
+        top: 13%;
+        left: 10%;
+        visibility: hidden;
+      }
+
+      #p4{
+        position: fixed;
+        top: 45%;
+        left: 50%;
+        visibility: hidden;
+      }
+
+      #p5{
+        position: fixed;
+        top: 4;
+        left: 27%;
+        visibility: hidden;
+      }
+
+      #p6{
+        position: fixed;
+        top: 7%;
+        left: 64%;
+        visibility: hidden;
+      }
+
+      #p7{
+        position: fixed;
+        top: 50%;
+        left: 10%;
+        visibility: hidden;
+      }
+
+      #p8{
+        position: fixed;
+        top: 6%;
+        left: 40%;
+        visibility: hidden;
+      }
+
+      #p9{
+        position: fixed;
+        top: 60%;
+        left: 80%;
+        visibility: hidden;
+      }
+
+      #p10{
+        position: fixed;
+        top: 40%;
+        left: 25%;
+        visibility: hidden;
+      }
+
+      #p11{
+        position: fixed;
+        top: 4%;
+        left: 49%;
+        visibility: hidden;
+      }
+
+      #p12{
+        position: fixed;
+        top: -1%;
+        left: -8%;
+        visibility: hidden;
+      }
+
+      #p13{
+        position: fixed;
+        top: 23%;
+        left: 38%;
+        visibility: hidden;
+      }
+
+      #p14{
+        position: fixed;
+        top: 65%;
+        left: 8%;
+        visibility: hidden;
+      }
+
+      #p15{
+        position: fixed;
+        top: 38%;
+        left: 60.5%;
+        visibility: hidden;
+      }
+
+      #p16{
+        position: fixed;
+        top: -4%;
+        left: 85.2%;
+        visibility: hidden;
+      }
+
+      #p17{
+        position: fixed;
+        top: 40.9%;
+        left: -8%;
+        visibility: hidden;
+      }
+
+      #p18{
+        position: fixed;
+        top: 60%;
+        left: 37%;
+        visibility: hidden;
+      }
+
+      #p19{
+        position: fixed;
+        top: 50%;
+        left: 90%;
+        visibility: hidden;
+      }
+
+      #p20{
+        position: fixed;
+        top: -2%;
+        left: 7%;
+        visibility: hidden;
+      }
+
+      #p21{
+        position: fixed;
+        top: 57%;
+        left: 70%;
+        visibility: hidden;
+      }
+
+      #p22{
+        position: fixed;
+        top: -7%;
+        left: 16%;
+        visibility: hidden;
+      }
+
+      #p23{
+        position: fixed;
+        top: -2%;
+        left: 79%;
+        visibility: hidden;
+      }
+
+      #p24{
+        position: fixed;
+        top: 40%;
+        left: 20%;
+        visibility: hidden;
+      }
+
+      #p25{
+        position: fixed;
+        top: -12%;
+        left: 55%;
+        visibility: hidden;
+      }
+
+      #p26{
+        position: fixed;
+        top: -12%;
+        left: 70%;
+        visibility: hidden;
+      }
+
+      #p27{
+        position: fixed;
+        top: -12%;
+        left: 0%;
+        visibility: hidden;
+      }
+
+      #p28{
+        position: fixed;
+        top: 60%;
+        left: 59%;
+        visibility: hidden;
+      }
+
+      #p29{
+        position: fixed;
+        top: -12%;
+        left: 28%;
+        visibility: hidden;
+      }
+
+      #p30{
+        position: fixed;
+        top: -30%;
+        left: 40%;
+        visibility: hidden;
+      }
+
+      #p31{
+        position: fixed;
+        top: 58%;
+        left: 26%;
+        visibility: hidden;
+      }
+
+      #p32{
+        position: fixed;
+        top: -12%;
+        left: 65%;
+        visibility: hidden;
+      }
+
+      #p33{
+        position: fixed;
+        top: 58%;
+        left: 48%;
+        visibility: hidden;
+      }
+
+      #p34{
+        position: fixed;
+        top: 38%;
+        visibility: hidden;
+      }
+
+      #p35{
+        position: fixed;
+        top: 15%;
+        left: 85%;
+        visibility: hidden;
+      }
     </style>
 
     <script type="text/javascript">
-      function Redirect()
+      /*function Redirect()
       {
         window.location = "https://snazzymaps.com/build-a-map/preview/82684";
       }
-      setTimeout('Redirect()', 3000);
+      setTimeout('Redirect()', 3000);*/
+
+      function sleep(ms)
+      {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      }
+
+      async function imageDelay()
+      {
+        for(var i=1; i<=35; i++)
+        {
+          var time;
+          if(i<=6)
+            time=600;
+          else if(i>6 && i<=12)
+            time=400;
+          else if (i>12 && i<=18)
+            time=300;
+          else if (i>18 && i<=24)
+            time=200;
+          else if (i>24 && i<=28)
+            time=100;
+          else if (i>28)
+            time=50;
+
+          var x = "p" + i;
+          document.getElementById(x).style.visibility = "visible";
+          await sleep(time);
+        }
+      }
+      setTimeout('imageDelay()', 6000);
     </script>
   </head>
   <body>
+    <!-- Project Title Display -->
     <div id='titleText'>
       <img src="./lib/img/title.png" alt="title" height="200px">
+    </div>
+
+
+    <!-- Population Pop-ups x35 -->
+    <div id='x35'>
+
+      <div id='p1'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p2'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p3'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p4'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p5'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p6'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p7'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p8'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p9'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p10'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p11'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p12'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p13'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p14'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p15'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p16'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p17'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p18'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p19'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p20'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p21'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p22'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p23'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p24'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p25'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p26'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p27'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p28'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p29'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p30'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p31'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p32'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p33'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p34'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
+
+      <div id='p35'>
+        <img src="lib\img\person.png" alt="" height="350px" width="320px">
+      </div>
     </div>
   </body>
 </html>
