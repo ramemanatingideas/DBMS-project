@@ -274,11 +274,11 @@
     </style>
 
     <script type="text/javascript">
-      /*function Redirect()
+      function Redirect()
       {
-        window.location = "https://snazzymaps.com/build-a-map/preview/82684";
+        window.location = "https://snazzymaps.com/embed/82684";
       }
-      setTimeout('Redirect()', 3000);*/
+      setTimeout('Redirect()', 9000);
 
       function sleep(ms)
       {
@@ -291,24 +291,24 @@
         {
           var time;
           if(i<=6)
-            time=600;
-          else if(i>6 && i<=12)
             time=400;
-          else if (i>12 && i<=18)
+          else if(i>6 && i<=12)
             time=300;
+          else if (i>12 && i<=18)
+            time=150;
           else if (i>18 && i<=24)
-            time=200;
+            time=75;
           else if (i>24 && i<=28)
-            time=100;
-          else if (i>28)
             time=50;
+          else if (i>28)
+            time=20;
 
           var x = "p" + i;
           document.getElementById(x).style.visibility = "visible";
           await sleep(time);
         }
       }
-      setTimeout('imageDelay()', 6000);
+      setTimeout('imageDelay()', 3000);
     </script>
   </head>
   <body>
