@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script type="text/javascript">
+        google.charts.load("current", {packages:["corechart"]});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+          var data_TN = google.visualization.arrayToDataTable([
+            ['State', 'Population'],
+            ['Tamil Nadu', 72147030],
+            ['', 1138707947]
+          ]);
+
+          var options_TN = {
+            title: '',
+            legend: 'none',
+            pieSliceText: 'label',
+            slices: {  1: {offset: 0.2},
+            },
+          };
+
+          var chart_TN = new google.visualization.PieChart(document.getElementById('piechart_TN'));
+          chart_TN.draw(data_TN, options_TN);
+        }
+    </script>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var map;
+
+      function initMap() {
+        var AP = {lat: 15.9129, lng: 79.7400}; //Andhra Pradesh
+        var AR = {lat: 28.2180, lng: 94.7278}; //Arunachal Pradesh
+        var AS = {lat: 26.2006, lng: 92.9376}; //Assam
+        var BR = {lat: 25.0961, lng: 85.3131}; //Bihar
+        var CH = {lat: 30.7333, lng: 76.7794}; //Chandigarh
+        var CG = {lat: 21.2787, lng: 81.8661}; //Chhattisgarh
+        var GA = {lat: 15.2993, lng: 74.1240}; //Goa
+        var GJ = {lat: 22.2587, lng: 71.1924}; //Gujarat
+        var HR = {lat: 29.0588, lng: 76.0856}; //Haryana
+        var HP = {lat: 31.1048, lng: 77.1734}; //Himachal Pradesh
+        var JK = {lat: 34.0836, lng: 74.7973}; //Jammu and Kashmir
+        var JH = {lat: 23.6102, lng: 85.2799}; //Jharkhand
+        var KA = {lat: 15.3173, lng: 75.7139}; //Karnataka
+        var KL = {lat: 10.8505, lng: 76.2711}; //Kerala
+        var MP = {lat: 22.9734, lng: 78.6569}; //Madhya Pradesh
+        var MH = {lat: 19.7515, lng: 75.7139}; //Maharashtra
+        var MN = {lat: 24.6637, lng: 93.9063}; //Manipur
+        var ML = {lat: 25.4670, lng: 91.3662}; //Meghalaya
+        var MZ = {lat: 23.1645, lng: 92.9376}; //Mizoram
+        var NL = {lat: 26.1584, lng: 94.5624}; //Nagaland
+        var OR = {lat: 20.9517, lng: 85.0985}; //Orissa
+        var PB = {lat: 31.1471, lng: 75.3412}; //Punjab
+        var RJ = {lat: 27.0238, lng: 74.2179}; //Rajasthan
+        var SK = {lat: 27.5330, lng: 88.5122}; //Sikkim
+        var TN = {lat: 11.1271, lng: 78.6569}; //Tamil Nadu
+        var TR = {lat: 23.9408, lng: 91.9882}; //Tripura
+        var UK = {lat: 30.0668, lng: 79.0193}; //Uttarakhand
+        var UP = {lat: 26.8467, lng: 80.9462}; //Uttar Pradesh
+        var WB = {lat: 22.9868, lng: 87.8550}; //West Bengal
+
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 22.659608, lng: 78.618256},
+          zoom: 5,
+          styles: [
+    {
+        "featureType": "all",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "saturation": 36
+            },
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 40
+            },
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "visibility": "off"
+            },
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 16
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 20
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 17
+            },
+            {
+                "weight": 1.2
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.country",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "weight": "3.18"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.country",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "weight": "2.7"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.province",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "lightness": "0"
+            },
+            {
+                "weight": "3"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.province",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "weight": "1.5"
+            },
+            {
+                "lightness": "-20"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.locality",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.locality",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.locality",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.land_parcel",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.land_parcel",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 20
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.natural",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.natural",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.natural.landcover",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.natural.landcover",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.natural.landcover",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.natural.landcover",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.natural.terrain",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.natural.terrain",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.natural.terrain",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 21
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 17
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 29
+            },
+            {
+                "weight": 0.2
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 18
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 16
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 19
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 17
+            }
+        ]
+    }
+]
+        });
+
+        // var contentString_TN = '<div id="content">'+
+        //       '<div id="siteNotice">'+
+        //       '</div>'+
+        //       '<h1 id="firstHeading" class="firstHeading">Tamil Nadu</h1>'+
+        //       '<div id="bodyContent">'+
+        //       '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+        //       'sandstone rock formation in the southern part of the '+
+        //       'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
+        //       'south west of the nearest large town, Alice Springs; 450&#160;km '+
+        //       '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
+        //       'features of the Uluru - Kata Tjuta National Park. Uluru is '+
+        //       'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
+        //       'Aboriginal people of the area. It has many springs, waterholes, '+
+        //       'rock caves and ancient paintings. Uluru is listed as a World '+
+        //       'Heritage Site.</p>'+
+        //       '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+        //       'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+        //       '(last visited June 22, 2009).</p>'+
+        //       '</div>'+
+        //       '</div>';
+
+        //Andhra Pradesh, AP
+        var marker_AP = new google.maps.Marker({
+          position: AP,
+          map: map,
+          title: 'Andhra Pradesh'
+        });
+
+        var contentString_AP = '<div id="content">'+
+                  '<h1 id="firstHeading" class="firstHeading">Andhra Pradesh</h1>'+
+                  '</div>';
+
+        var infowindow_AP = new google.maps.InfoWindow({
+            content: contentString_AP
+          });
+
+        marker_AP.addListener('click', function() {
+          infowindow_AP.open(map, marker_AP);
+          });
+
+
+        //Arunachal Pradesh, AR
+        var marker_AR = new google.maps.Marker({
+          position: AR,
+          map: map,
+          title: 'Arunachal Pradesh'
+        });
+
+        var contentString_AR = '<div id="content">'+
+                  '<h1 id="firstHeading" class="firstHeading">Arunachal Pradesh</h1>'+
+                  '</div>';
+
+        var infowindow_AR = new google.maps.InfoWindow({
+            content: contentString_AR
+          });
+
+        marker_AR.addListener('click', function() {
+          infowindow_AR.open(map, marker_AR);
+          });
+
+
+        //Assam, AS
+        var marker_AS = new google.maps.Marker({
+          position: AS,
+          map: map,
+          title: 'Assam'
+        });
+
+        var contentString_AS = '<div id="content">'+
+                  '<h1 id="firstHeading" class="firstHeading">Assam</h1>'+
+                  '</div>';
+
+        var infowindow_AS = new google.maps.InfoWindow({
+            content: contentString_AS
+          });
+
+        marker_AS.addListener('click', function() {
+          infowindow_AS.open(map, marker_AS);
+          });
+
+
+        //Bihar, BR
+        var marker_BR = new google.maps.Marker({
+          position: BR,
+          map: map,
+          title: 'Bihar'
+        });
+
+        var contentString_BR = '<div id="content">'+
+                  '<h1 id="firstHeading" class="firstHeading">Bihar</h1>'+
+                  '</div>';
+
+        var infowindow_BR = new google.maps.InfoWindow({
+            content: contentString_BR
+          });
+
+        marker_BR.addListener('click', function() {
+          infowindow_BR.open(map, marker_BR);
+          });
+
+
+        //Chandigarh, CH
+        var marker_CH = new google.maps.Marker({
+          position: CH,
+          map: map,
+          title: 'Chandigarh'
+        });
+
+        var contentString_CH = '<div id="content">'+
+                  '<h1 id="firstHeading" class="firstHeading">Chandigarh</h1>'+
+                  '</div>';
+
+        var infowindow_CH = new google.maps.InfoWindow({
+            content: contentString_CH
+          });
+
+        marker_CH.addListener('click', function() {
+          infowindow_CH.open(map, marker_CH);
+          });
+
+
+        //Chhattisgarh, CG
+        var marker_CG = new google.maps.Marker({
+          position: CG,
+          map: map,
+          title: 'Chhattisgarh'
+        });
+
+        var contentString_CG = '<div id="content">'+
+                  '<h1 id="firstHeading" class="firstHeading">Chhattisgarh</h1>'+
+                  '</div>';
+
+        var infowindow_CG = new google.maps.InfoWindow({
+            content: contentString_CG
+          });
+
+        marker_CG.addListener('click', function() {
+          infowindow_CG.open(map, marker_CG);
+          });
+
+
+        //Goa, GA
+        var marker_GA = new google.maps.Marker({
+          position: GA,
+          map: map,
+          title: 'Goa'
+        });
+
+        var contentString_GA = '<div id="content">'+
+                  '<h1 id="firstHeading" class="firstHeading">Goa</h1>'+
+                  '</div>';
+
+        var infowindow_GA = new google.maps.InfoWindow({
+            content: contentString_GA
+          });
+
+        marker_GA.addListener('click', function() {
+          infowindow_GA.open(map, marker_GA);
+          });
+
+
+        //Gujarat, GJ
+        var marker_GJ = new google.maps.Marker({
+          position: GJ,
+          map: map,
+          title: 'Gujarat'
+        });
+
+        var contentString_GJ = '<div id="content">'+
+                  '<h1 id="firstHeading" class="firstHeading">Gujarat</h1>'+
+                  '</div>';
+
+        var infowindow_GJ = new google.maps.InfoWindow({
+            content: contentString_GJ
+          });
+
+        marker_GJ.addListener('click', function() {
+          infowindow_GJ.open(map, marker_GJ);
+          });
+
+
+        //Haryana, HR
+        var marker_HR = new google.maps.Marker({
+          position: HR,
+          map: map,
+          title: 'Haryana'
+        });
+
+        var contentString_HR = '<div id="content">'+
+                  '<h1 id="firstHeading" class="firstHeading">Haryana</h1>'+
+                  '</div>';
+
+        var infowindow_HR = new google.maps.InfoWindow({
+            content: contentString_HR
+          });
+
+        marker_HR.addListener('click', function() {
+          infowindow_HR.open(map, marker_HR);
+          });
+
+
+        //Himachal Pradesh, HP
+        var marker_HP = new google.maps.Marker({
+          position: HP,
+          map: map,
+          title: 'Himachal Pradesh'
+        });
+
+        var contentString_HP = '<div id="content">'+
+                  '<h1 id="firstHeading" class="firstHeading">Himachal Pradesh</h1>'+
+                  '</div>';
+
+        var infowindow_HP = new google.maps.InfoWindow({
+            content: contentString_HP
+          });
+
+        marker_HP.addListener('click', function() {
+          infowindow_HP.open(map, marker_HP);
+          });
+
+
+        //Jammu and Kashmir, JK
+        var marker_JK = new google.maps.Marker({
+          position: JK,
+          map: map,
+          title: 'Jammu and Kashmir'
+        });
+
+        var contentString_JK = '<div id="content">'+
+                  '<h1 id="firstHeading" class="firstHeading">Jammu and Kashmir</h1>'+
+                  '</div>';
+
+        var infowindow_JK = new google.maps.InfoWindow({
+            content: contentString_JK
+          });
+
+        marker_JK.addListener('click', function() {
+          infowindow_JK.open(map, marker_JK);
+          });
+
+
+        //Jharkhand, JH
+        var marker_JH = new google.maps.Marker({
+          position: JH,
+          map: map,
+          title: 'Jharkhand'
+        });
+
+        var contentString_JH = '<div id="content">'+
+                  '<h1 id="firstHeading" class="firstHeading">Jharkhand</h1>'+
+                  '</div>';
+
+        var infowindow_JH = new google.maps.InfoWindow({
+            content: contentString_JH
+          });
+
+        marker_JH.addListener('click', function() {
+          infowindow_JH.open(map, marker_JH);
+          });
+
+
+        //Karnataka, KA
+        var marker_KA = new google.maps.Marker({
+          position: KA,
+          map: map,
+          title: 'Karnataka'
+        });
+
+        var contentString_KA = '<div id="content">'+
+                  '<h1 id="firstHeading" class="firstHeading">Karnataka</h1>'+
+                  '</div>';
+
+        var infowindow_KA = new google.maps.InfoWindow({
+            content: contentString_KA
+          });
+
+        marker_KA.addListener('click', function() {
+          infowindow_KA.open(map, marker_KA);
+          });
+
+
+        //Kerala, KL
+        var marker_KL = new google.maps.Marker({
+          position: KL,
+          map: map,
+          title: 'Kerala'
+        });
+
+        var contentString_KL = '<div id="content">'+
+                  '<h3 id="firstHeading" class="firstHeading">Kerala</h3>'+
+                  '<p><em>God\'s Own Country</em></p>'+
+                  '<p><strong>Population:</strong> </p>'+
+                  '<div class="progress active"><div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" aria-valuenow="6" aria-valuemin="0" aria-valuemax="100" style="width: 6%">6%</div></div>'+
+                  '<br><p><a href="/map/KL/details">Click here</a> to view more details.</p>'+
+                  '</div>';
+
+        var infowindow_KL = new google.maps.InfoWindow({
+            content: contentString_KL
+          });
+
+        marker_KL.addListener('click', function() {
+          infowindow_KL.open(map, marker_KL);
+          });
+
+
+        //Madhya Pradesh, MP
+        var marker_MP = new google.maps.Marker({
+          position: MP,
+          map: map,
+          title: 'Madhya Pradesh'
+        });
+
+        var contentString_MP = '<div id="content">'+
+                  '<h1 id="firstHeading" class="firstHeading">Madhya Pradesh</h1>'+
+                  '</div>';
+
+        var infowindow_MP = new google.maps.InfoWindow({
+            content: contentString_MP
+          });
+
+        marker_MP.addListener('click', function() {
+          infowindow_MP.open(map, marker_MP);
+          });
+
+
+        //Maharashtra, MH
+        var marker_MH = new google.maps.Marker({
+          position: MH,
+          map: map,
+          title: 'Maharashtra'
+        });
+
+        var contentString_MH = '<div id="content">'+
+                  '<h1 id="firstHeading" class="firstHeading">Maharashtra</h1>'+
+                  '</div>';
+
+        var infowindow_MH = new google.maps.InfoWindow({
+            content: contentString_MH
+          });
+
+        marker_MH.addListener('click', function() {
+          infowindow_MH.open(map, marker_MH);
+          });
+
+
+        //Manipur, MN
+        var marker_MN = new google.maps.Marker({
+          position: MN,
+          map: map,
+          title: 'Manipur'
+        });
+
+        var contentString_MN = '<div id="content">'+
+                  '<h1 id="firstHeading" class="firstHeading">Manipur</h1>'+
+                  '</div>';
+
+        var infowindow_MN = new google.maps.InfoWindow({
+            content: contentString_MN
+          });
+
+        marker_MN.addListener('click', function() {
+          infowindow_MN.open(map, marker_MN);
+          });
+
+
+        //Meghalaya, ML
+        var marker_ML = new google.maps.Marker({
+          position: ML,
+          map: map,
+          title: 'Meghalaya'
+        });
+
+        var contentString_ML = '<div id="content">'+
+                  '<h1 id="firstHeading" class="firstHeading">Meghalaya</h1>'+
+                  '</div>';
+
+        var infowindow_ML = new google.maps.InfoWindow({
+            content: contentString_ML
+          });
+
+        marker_ML.addListener('click', function() {
+          infowindow_ML.open(map, marker_ML);
+          });
+
+
+        //Mizoram, MZ
+        var marker_MZ = new google.maps.Marker({
+          position: MZ,
+          map: map,
+          title: 'Mizoram'
+        });
+
+        var contentString_MZ = '<div id="content">'+
+                  '<h1 id="firstHeading" class="firstHeading">Mizoram</h1>'+
+                  '</div>';
+
+        var infowindow_MZ = new google.maps.InfoWindow({
+            content: contentString_MZ
+          });
+
+        marker_MZ.addListener('click', function() {
+          infowindow_MZ.open(map, marker_MZ);
+          });
+
+
+        //Nagaland, NL
+        var marker_NL = new google.maps.Marker({
+          position: NL,
+          map: map,
+          title: 'Nagaland'
+        });
+
+        var contentString_NL = '<div id="content">'+
+                  '<h1 id="firstHeading" class="firstHeading">Nagaland</h1>'+
+                  '</div>';
+
+        var infowindow_NL = new google.maps.InfoWindow({
+            content: contentString_NL
+          });
+
+        marker_NL.addListener('click', function() {
+          infowindow_NL.open(map, marker_NL);
+          });
+
+
+        //Orissa, OR
+        var marker_OR = new google.maps.Marker({
+          position: OR,
+          map: map,
+          title: 'Orissa'
+        });
+
+        var contentString_OR = '<div id="content">'+
+                  '<h1 id="firstHeading" class="firstHeading">Orissa</h1>'+
+                  '</div>';
+
+        var infowindow_OR = new google.maps.InfoWindow({
+            content: contentString_OR
+          });
+
+        marker_OR.addListener('click', function() {
+          infowindow_OR.open(map, marker_OR);
+          });
+
+
+        //Punjab, PB
+        var marker_PB = new google.maps.Marker({
+          position: PB,
+          map: map,
+          title: 'Punjab'
+        });
+
+        var contentString_PB = '<div id="content">'+
+                  '<h1 id="firstHeading" class="firstHeading">Punjab</h1>'+
+                  '</div>';
+
+        var infowindow_PB = new google.maps.InfoWindow({
+            content: contentString_PB
+          });
+
+        marker_PB.addListener('click', function() {
+          infowindow_PB.open(map, marker_PB);
+          });
+
+
+        //Rajasthan, RJ
+        var marker_RJ = new google.maps.Marker({
+          position: RJ,
+          map: map,
+          title: 'Rajasthan'
+        });
+
+        var contentString_RJ = '<div id="content">'+
+                  '<h1 id="firstHeading" class="firstHeading">Rajasthan</h1>'+
+                  '</div>';
+
+        var infowindow_RJ = new google.maps.InfoWindow({
+            content: contentString_RJ
+          });
+
+        marker_RJ.addListener('click', function() {
+          infowindow_RJ.open(map, marker_RJ);
+          });
+
+
+        //Sikkim, SK
+        var marker_SK = new google.maps.Marker({
+          position: SK,
+          map: map,
+          title: 'Sikkim'
+        });
+
+        var contentString_SK = '<div id="content">'+
+                  '<h3 id="firstHeading" class="firstHeading">Sikkim</h3>'+
+                  '<p><em>Small but beautiful</em></p>'+
+                  '<p><strong>Population:</strong> </p>'+
+                  '<div class="progress active"><div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" aria-valuenow="6" aria-valuemin="0" aria-valuemax="100" style="width: 6%">6%</div></div>'+
+                  '<br><p><a href="/map/SK/details">Click here</a> to view more details.</p>'+
+                  '</div>';
+
+        var infowindow_SK = new google.maps.InfoWindow({
+            content: contentString_SK
+          });
+
+        marker_SK.addListener('click', function() {
+          infowindow_SK.open(map, marker_SK);
+          });
+
+
+        //Tamil Nadu, TN
+        var marker_TN = new google.maps.Marker({
+          position: TN,
+          map: map,
+          title: 'Tamil Nadu'
+        });
+
+        var contentString_TN = '<div id="content">'+
+                  '<h3 id="firstHeading" class="firstHeading">Tamil Nadu</h3>'+
+                  '<p><em>Enchanting TamilNadu</em></p>'+
+                  '<p><strong>Population:</strong> 72147030</p>'+
+                  '<div class="progress active"><div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" aria-valuenow="6" aria-valuemin="0" aria-valuemax="100" style="width: 6%">6%</div></div>'+
+                  '<br><p><a href="/map/TN/details">Click here</a> to view more details.</p>'+
+                  '</div>';
+
+        var infowindow_TN = new google.maps.InfoWindow({
+            content: contentString_TN
+          });
+
+        marker_TN.addListener('click', function() {
+          infowindow_TN.open(map, marker_TN);
+          });
+
+
+
+        //Tripura, TR
+        var marker_TR = new google.maps.Marker({
+          position: TR,
+          map: map,
+          title: 'Tripura'
+        });
+
+        var contentString_TR = '<div id="content">'+
+                  '<h1 id="firstHeading" class="firstHeading">Tripura</h1>'+
+                  '</div>';
+
+        var infowindow_TR = new google.maps.InfoWindow({
+            content: contentString_TR
+          });
+
+        marker_TR.addListener('click', function() {
+          infowindow_TR.open(map, marker_TR);
+          });
+
+
+        //Uttarakhand, UK
+        var marker_UK = new google.maps.Marker({
+          position: UK,
+          map: map,
+          title: 'Uttarakhand'
+        });
+
+        var contentString_UK = '<div id="content">'+
+                  '<h1 id="firstHeading" class="firstHeading">Uttarakhand</h1>'+
+                  '</div>';
+
+        var infowindow_UK = new google.maps.InfoWindow({
+            content: contentString_UK
+          });
+
+        marker_UK.addListener('click', function() {
+          infowindow_UK.open(map, marker_UK);
+          });
+
+
+        //Uttar Pradesh, UP
+        var marker_UP = new google.maps.Marker({
+          position: UP,
+          map: map,
+          title: 'Uttar Pradesh'
+        });
+
+        var contentString_UP = '<div id="content">'+
+                  '<h1 id="firstHeading" class="firstHeading">Uttar Pradesh</h1>'+
+                  '</div>';
+
+        var infowindow_UP = new google.maps.InfoWindow({
+            content: contentString_UP
+          });
+
+        marker_UP.addListener('click', function() {
+          infowindow_UP.open(map, marker_UP);
+          });
+
+
+        //West Bengal, WB
+        var marker_WB = new google.maps.Marker({
+          position: WB,
+          map: map,
+          title: 'West Bengal'
+        });
+
+        var contentString_WB = '<div id="content">'+
+                  '<h1 id="firstHeading" class="firstHeading">West Bengal</h1>'+
+                  '</div>';
+
+        var infowindow_WB = new google.maps.InfoWindow({
+            content: contentString_WB
+          });
+
+        marker_WB.addListener('click', function() {
+          infowindow_WB.open(map, marker_WB);
+          });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7YRyzsyGHIhq7C-1gHjHMon0CnlYVqd8&callback=initMap"
+    async defer></script>
+  </body>
+</html>
